@@ -1,6 +1,6 @@
 ; Edit level load (with text) timer
 ; Now starts as soon as there is input
-if !enable_stage_intro_skip
+if !enable_level_intro_skip
 org level_intro_wait
 wait:
     LDA $0035
