@@ -227,7 +227,7 @@ main_egg_changer:
 ; wrap from 1-9
   LDA !debug_egg_inv_mirror,x
   INC A
-  CMP #$0A
+  CMP.b #!egg_changer_options+1
   BCC .inc
   LDA #$01
 
@@ -247,7 +247,7 @@ main_egg_changer:
   LDA !debug_egg_inv_mirror,x
   DEC A
   BNE .dec
-  LDA #$09
+  LDA.b #!egg_changer_options
 
 .dec
   STA !debug_egg_inv_mirror,x
@@ -339,7 +339,7 @@ egg_inv_to_debug_mirror:
   LDX #$000A
   .loop
     LDA !egg_inv_items,x
-    LDY #$0024
+    LDY.w #!egg_changer_options*4
     .translate_loop
       CMP egg_inv_tilemap,y
       BEQ .match
@@ -349,7 +349,7 @@ egg_inv_to_debug_mirror:
       DEY
       BNE .translate_loop
   ; no match, set as unknown sprite
-    LDY #$0028
+    LDY.w #(!egg_changer_options+1)*4
   .match
     TYA
     LSR A
@@ -376,7 +376,7 @@ debug_inv_to_egg_inv:
   .loop
     LDA !debug_egg_inv_mirror,y
     ; if null egg/unknown index, don't set
-    CMP #$000A
+    CMP.w #!egg_changer_options+1
     BCS +
     ASL A
     ASL A

@@ -12,7 +12,7 @@
 ; 32 bytes
 !palette_anim_timer = $026E
 !palette_backup = $0270
-!palette_backup_size = #$0030
+!palette_backup_size = #$0038
 menu_palette:
 .flashing
 dw $0000, $FFFF, $0000, $789F
@@ -26,6 +26,8 @@ dw $0000, $FFFF, $0000, $001F
 dw $0000, $001F, $0000, $001F
 .green_text
 dw $0000, $05E0, $0000, $001F
+.blue
+dw $0000, $FFFF, $0000, $7D80
 
 ; 28 rows
 ; 1792 bytes

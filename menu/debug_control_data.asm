@@ -131,6 +131,8 @@ control_function_calls:
 
 ;======================================
 
+!egg_changer_options = $0C
+
 ; word 1: sprite ID
 ; word 2: tilemap ID
 egg_inv_tilemap:
@@ -154,5 +156,11 @@ dw $0028, $083C
 dw $002A, $0C3B
 ; Green Giant Egg
 dw $002B, $043B
+; Boss Explosion
+dw $0013, $003E
+; Log Seesaw
+dw $007F, $0843
+; Little Skull Mouser
+dw $01A3, $1844
 ; Unknown
 dw $000D, $0026

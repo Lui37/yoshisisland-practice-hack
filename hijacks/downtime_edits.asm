@@ -1,10 +1,12 @@
 ; Edit level load (with text) timer
 ; Now starts as soon as there is input
+if !enable_stage_intro_skip
 org level_intro_wait
 wait:
     LDA $0035
     ORA $0940
     BEQ wait
+endif
 
 ; Skip icon rotating on world map
 org map_icon_rotation
